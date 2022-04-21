@@ -1,0 +1,603 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit; background-repeat: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
+.CodeMirror-linenumber { }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit; background-repeat: inherit; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background-color: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; }
+a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background-color: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571429rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+ @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
+</style><title>Shark Fin Zh</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h3 id='鯊魚鰭產品購買協定'><span>鯊魚鰭產品購買協定</span></h3><p><strong><span>組合產品協定</span></strong></p><p><span>本組合結構化衍生產品協定（本“協定”）由您（以下還簡稱“客戶”）委託Metalpha平臺（Metalpha Technology Limited和成立於BVI的實體Metalpha Limited以及成為於BVI的實體xxx（“Metalpha”、“xxx”與您一起合稱“協議三方”，分別簡稱“協定一方”）之間簽署的三方協定。本協定載明瞭您投資公司的組合結構化產品（“組合產品”)應遵循的條款和條件。只有當三方都確定，該購買協議才具備相應法律效應。</span>
+<span>通過點擊“[同意]”，您同意您已閱讀、瞭解並接受本協議以及 Metalpha平臺的[隱私政策]中包含的所有條款和條件。如您對組合產品和/或本協定有任何疑問，請發送電子郵件至 [support@metalpha.finance]，聯絡我們的客服。</span>
+<span>投資組合產品，即表示您同意我們訪問、處理和保留您按照Metalpha使用者協議向Metalpha提供的任何個人資訊。</span>
+<span>同任何資產一樣，虛擬貨幣的價值會上下浮動，您購買、出售、持有或者投資虛擬貨幣或相關產品可能存在資金虧損的巨大風險。您應根據自已的財務狀況，仔細考慮您是否適合購買和持有該產品。您特此同意，公司非以受託人身份提供產品，未就特定投資決策提供（亦不聲稱自已提供）意見或建議。</span></p><ol start='' ><li><strong><span>產品定義</span></strong>
+<span>鯊魚鰭產品是一個收益增強類產品。產品中嵌入了加密貨幣掛鉤衍生品的多頭/空頭頭寸。產品到期時的收益是根據交易期內的標的表現而確定的。</span></li></ol><p><strong><span>產品通用條款</span></strong></p><figure><table><thead><tr><th style='text-align:left;' ><span>内容</span></th><th><span>说明</span></th></tr></thead><tbody><tr><td style='text-align:left;' ><span>產品發行方/計算代理:</span></td><td><span>Metalpha  Limited +Metalpha Technology Limited</span></td></tr><tr><td style='text-align:left;' ><span>產品編號:</span></td><td><span>以產品詳情頁為准</span></td></tr><tr><td style='text-align:left;' ><span>發行上限:</span></td><td><span>以產品詳情頁為准</span></td></tr><tr><td style='text-align:left;' ><span>發行規模:</span></td><td><span>USDT</span></td></tr><tr><td style='text-align:left;' ><span>發行價格:</span></td><td><span>以產品詳情頁為准</span></td></tr><tr><td style='text-align:left;' ><span>產品面值:</span></td><td><span>USDT  1</span></td></tr><tr><td style='text-align:left;' ><span>投資幣種:</span></td><td><span>USDT</span></td></tr><tr><td style='text-align:left;' ><span>報價幣種:</span></td><td><span>USDT</span></td></tr><tr><td style='text-align:left;' ><span>基礎幣種:</span></td><td><span>BTC</span></td></tr><tr><td style='text-align:left;' ><span>基礎利率</span></td><td><span>[ ]</span></td></tr><tr><td style='text-align:left;' ><span>初始觀察日:</span></td><td><span>[ ]</span></td></tr><tr><td style='text-align:left;' ><span>支付日/發行日/交易日:</span></td><td><span>[ ]</span></td></tr><tr><td style='text-align:left;' ><span>期末觀察日:</span></td><td><span>[ ]</span></td></tr><tr><td style='text-align:left;' ><span>到期日:</span></td><td><span>[ ] , 如無終止事件的發生。</span></td></tr><tr><td style='text-align:left;' ><span>結算:</span></td><td><span>加密貨幣結算</span></td></tr><tr><td style='text-align:left;' ><span>最低認購金額:</span></td><td><span>USDT 10</span></td></tr></tbody></table></figure><p><strong><span>收益條款</span></strong></p><figure><table><thead><tr><th style='text-align:left;' ><span>内容</span></th><th style='text-align:left;' ><span>说明</span></th></tr></thead><tbody><tr><td style='text-align:left;' ><span>掛鉤標的:</span></td><td style='text-align:left;' ><span>BTC/USDT, 即每一個BTC表示的USDT數量  “比特幣” 、“BTC” 均表示比特幣(Bitcoin)。比特幣是一種加密數位貨幣。  “泰達幣” 、“USDT” 均表示泰達幣(Tether)。泰達幣（英語：Tether），又稱USDT，是由Tether Limited發行的加密貨幣。泰達幣為一種穩定幣。 此幣種于2014年發行。</span></td></tr><tr><td style='text-align:left;' ><span>結算價格:</span></td><td style='text-align:left;' ><span>結算價格表示為一個單位的基礎貨幣可以購買的報價貨幣的數量。結算價格是基於一個或多個加密貨幣交易所在相關觀察日期的定盤時間所涉及該掛鉤標的的的交易價格，並最終由計算代理基於誠信和商業上合理的原則來確定。</span></td></tr><tr><td style='text-align:left;' ><span>定盤時間:</span></td><td style='text-align:left;' ><span>20:00, 香港時間(UTC+8)</span></td></tr><tr><td style='text-align:left;' ><span>期末估值價格:</span></td><td style='text-align:left;' ><span>期末估值價格表示為一個單位的基礎貨幣可以購買的報價貨幣的數量。期末估值價格是基於一個或多個加密貨幣交易所在相關觀察日期的期末估值時間所涉及掛鉤標的的的交易價格，並最終由計算代理基於誠信和商業上合理的原則來確定。</span></td></tr><tr><td style='text-align:left;' ><span>期末估值時間</span></td><td style='text-align:left;' ><span>15:30，香港時間(UTC+8)</span></td></tr><tr><td style='text-align:left;' ><span>初始價格:</span></td><td style='text-align:left;' ><span>初始價格為掛鉤標的在初始觀察日的結算價格且四捨五入至小數點後兩位元，並由計算代理最終確定。</span></td></tr><tr><td style='text-align:left;' ><span>敲出價格:</span></td><td style='text-align:left;' ><span>初始價格* [ ]，四捨五入到小數點後兩位元並由計算代理最終確定</span></td></tr><tr><td style='text-align:left;' ><span>行權價格:</span></td><td style='text-align:left;' ><span>初始價格* [ ]，四捨五入到小數點後兩位元並由計算代理最終確定</span></td></tr><tr><td style='text-align:left;' ><span>期末價格:</span></td><td style='text-align:left;' ><span>期末價格為掛鉤標的在期末觀察日的期末結算價格且四捨五入至小數點後兩位元，並由計算代理最終確定。</span></td></tr><tr><td style='text-align:left;' ><span>預定期限:</span></td><td style='text-align:left;' ><span>從（不包括）初始觀察日到（包括）期末觀察日的日曆天數</span></td></tr><tr><td style='text-align:left;' ><span>日計算基準:</span></td><td style='text-align:left;' ><span>365</span></td></tr><tr><td style='text-align:left;' ><span>參考率:</span></td><td style='text-align:left;' ><span>[  ]</span></td></tr><tr><td style='text-align:left;' ><span>基礎利率</span></td><td style='text-align:left;' ><span>保障性收益利率</span></td></tr><tr><td style='text-align:left;' ><span>贖回金額:</span></td><td style='text-align:left;' ><span>在到期日，產品投資者將有權收到由計算代理計算的如下金額：  </span><br><strong><span>看跌：</span></strong><span>  </span><br><span>a.      如果期末價格低於敲出價格，每份產品將以投資貨幣贖回，金額等於產品面值 * 0%+產品面值*基礎收益 ；如若不是,          </span><br><span>b.     如果期末價格等於或者高於敲出價格且期末價格等於或者低於執行價格，每份產品將以投資貨幣贖回，金額等於產品面值 * { 參與率 * [(執行價格 – 期末價格)/期初價格] * (預定期限/日計算基率) }+產品面值*基礎利率 ; 如若不是,             </span><br><span>c.     如果期末價格高於執行價格,  每份產品將以投資貨幣贖回，金額等於產品面值 * 0%+產品面值*基礎利率        </span><br><strong><span>看漲：</span></strong><span>  </span><br><span>a.    如果期末價格高於敲出價格，每份產品將以投資貨幣贖回，金額等於產品面值 * 0%+產品面值*基礎收益 ；如若不是,</span><br><span>b.    如果期末價格等於或者低於敲出價格且期末價格等於或者高於執行價格， 每份產品將以投資貨幣贖回，金額等於產品面值 * { 參與率 * [(期末價格 – 執行價格)/期初價格] * (預定期限/日計算基率) } +產品面值*基礎利率; 如若不是,</span><br><span>c.    如果期末價格低於執行價格，每份產品將以投資貨幣贖回，金額等於產品面值 * 0%+產品面值*基礎利率</span></td></tr></tbody></table></figure><p><strong><span>其他條款</span></strong></p><figure><table><thead><tr><th><span>内容</span></th><th><span>说明</span></th></tr></thead><tbody><tr><td><span>終止事件:</span></td><td><span>發行人和計算代理不對產品投資者或其他協力廠商因產品的不良表現而產生的任何損失或責任承擔責任。 發行人有權在任何時間（“終止日期”）無特定理由終止產品。 發行人應在合理可行的情況下儘快通知產品投資者終止日期。</span></td></tr><tr><td><span>終止事件的處理：</span></td><td><span>終止事件發生之後，發行人將按計算代理計算的終止金額提前贖回產品。 產品投資者應注意，由於不利的市場條件，終止金額可能遠低於發行價或終止時間前產品的最後估值。 在最壞的情況下，產品投資者可能完全無法收回他們的初始投資。</span></td></tr><tr><td><span>調整和特殊事件:</span></td><td><span>如果計算代理確定發生了對掛鉤標的的自動有重大影響的事件，則在每次發生此類事件後，計算代理將考慮相關事件對產品的影響，並有權對產品條款進行任何相應的調整（包括但不限於調整初始價格和目標價格、 替換掛鉤標的的等)，所有調整將由計算代理全權酌情決定。同時，調整的生效日期，也將由計算代理決定。</span></td></tr><tr><td><span>購買限制:</span></td><td><span>美國、中國大陸和新加坡</span></td></tr></tbody></table></figure><ol start='2' ><li><p><strong><span>組合產品條款</span></strong></p><ol start='' ><li><p><span>組合產品訂單系統 您可線上訪問Metalpha App提供的專有訂單系統（“訂單系統”），購買組合產品。訂單系統的訪問和使用，都需遵守本協議條款以及公司不時宣佈的任何其他政策和流程。</span></p></li><li><p><span>產品描述公司可通過訂單系統向您提供一種或多種精選產品。對於各種組合產品，您可指定您希望投資該組合產品的投資金額（應受限於平臺設置的購買金額限制）。一旦平臺確認您的訂單（“購買訂單”），將從您的Metalpha帳戶扣除投資金額。具體組合產品的投資資訊以訂單系統訂單狀態頁面具體顯示為准。</span></p></li><li><p><span>流程下列流程應適用於您對組合產品的投資：</span></p><ul><li><p><span>您可進入您要投資的組合產品的產品頁面（“產品頁面”），其中列有組合產品的關鍵條款，包括但不限於到期日、掛鉤價格和購買公式。</span></p></li><li><p><span>您可在訂單頁面（“訂單頁面”）指定您要投資的組合產品的投資金額。您點擊訂單頁面中的“購買”（或者對等含義的其他短語）按鈕，即表示您確認並接受訂單頁面的條款，之後您將進入“訂單狀態頁面”：</span></p><ul><li><span>若訂單狀態頁面顯示“失敗”（或者對等含義的其他短語），則代表平臺和您之間未簽署具有約束力的購買訂單。購買失敗的原因可能是售賣公司拒絕您提交的購買訂單，電腦故障，網路阻塞，市場資料錯誤或者其他原因。三方理解並同意，三方不應對該等交易失敗承擔責任，且平臺應有權自行獨立決定拒絕任何購買訂單。</span></li><li><span>若訂單頁面顯示“成功”（或者對等含義的其他短語），則表示您和售賣公司以訂單狀態頁面規定的條款簽訂了一份具有約束力的購買訂單，平臺有權立即從您的Metalpha帳戶扣除投資金額。</span></li><li><span>若訂單頁面顯示“處理中”（或者對等含義的其他短語），則表示您簽署了一份購買訂單待公司接受。一旦該購買訂單被售賣公司接受，您將進入顯示“成功”（或者對等含義的其他短語）的訂單狀態頁面；如果該購買訂單未被公司接受，您將進入顯示“失敗”（或者對等含義的其他短語）的訂單狀態頁面。</span></li><li><span>一旦雙方簽署購買訂單，客戶無權取消該購買訂單或者要求支取投資金額。</span></li></ul></li></ul></li><li><p><span>無資料傳輸速度責任；購買訂單明顯錯誤您特此理解並同意，平臺不對資料傳輸的速度或準確性承擔任何責任。您同意，若售賣公司認定您與公司簽署的購買訂單存在明顯錯誤，則售賣公司應有權在購買訂單簽署後一（24）小時內取消購買訂單。若公司按照本第2.4條取消購買訂單，公司將立即通知您該取消，若已扣款，公司將立即把投資金額退回至您的Metalpha帳戶。</span></p></li></ol></li><li><p><strong><span>一般條款</span></strong></p><ol start='' ><li><p><span>KYC/AML要求您特此理解並同意，在投資公司提供的組合產品之前，您可能需要先按照我們的KYC/AML政策先完成我們的客戶加入流程。</span></p></li><li><p><span>帳戶安全您帳戶密碼（或者其他安全設備）的安全，完全由您負責。通過您帳戶簽署的所有購買訂單，均被視為經您簽署的有效要約。由您過失導致帳戶、密碼或者其他資訊被冒用、挪用或非法使用的，公司不對產生的任何風險和損失承擔任何責任。</span></p></li><li><p><span>稅費各方自行負責其因本協定和/或本協定項下交易可能被徵收的相關稅費。</span></p></li><li><p><span>許可平臺特此在本協議期間，向您授予一項有限、非排他性、可撤銷、不可轉讓並且不可轉授的許可，允許您按照本協定條款使用訂單系統。公司或其許可方保留訂購系統的一切權利、所有權和權益，包括所有原始程式碼、目標代碼、資料、資訊，其中體現的版權、商標、專利、發明和商業秘密，以及本協議下未明確向您授予的所有其他權利。本協議概不構成放棄公司在巴拿馬或者任何其他管轄地智慧財產權法或者任何其他聯邦、州或外國法律項下的任何權利。</span></p></li><li><p><span>資料對於公司就您使用訂單系統以及您投資組合產品，向您提供的任何資料或資訊，您特此同意：</span></p><ul><li><span>該等資料或資訊僅用於本協定規定的用途，並且其使用符合所有適用的任何政府、政府機構或法院的法律、法規、規則、判決、命令、法令、裁定、施令和其他限制（“適用法律”）；</span></li><li><span>除適用法律要求外，不向協力廠商傳播、傳輸、展示或者以其他方式披露或提供該等資料或資訊；以及未經公司事先書面同意，不改進、修改該等資料或資訊，不使用該等資料或資訊製作衍生品，亦不將該等資料或資訊與任何其他資訊組合使用。</span></li></ul></li><li><p><span>監控權公司有權獨立決定監控訂單系統的所有使用，以保證遵守適用法律、本協議以及公司及其關聯方不時制定的政策和流程。</span></p></li></ol></li></ol><ol start='4' ><li><p><strong><span>陳述和保證</span></strong></p><p><span>您特此向公司作出如下陳述和保證，並且該等陳述和保證將被視為於您每次使用訂單系統和/或與公司簽署組合產品購買訂單時重新作出：</span></p><ol start='' ><li><span>權力您具備簽署本協定和/或組合產品購買訂單，履行您在本協定和/或購買訂單項下義務所需的權力，並且本協定和/或購買訂單對您有效並具有約束力。</span></li><li><span>資訊真實和完整您向公司提供的任何形式的所有資訊，除您已將修改通知公司的以外，在所有方面均真實和完整。</span></li><li><span>不違反或衝突您通過電子方式簽署、交付和履行本協定和/或您簽署的購買訂單，不違反或抵觸對您適用的任何法律，和/或對您或者您投資精選產品所用資產具有約束力或者影響的任何合同限制。</span></li><li><span>合規您投資精選產品將遵守所有適用法律。</span></li></ol></li><li><p><strong><span>賠償</span></strong></p><p><span>在與本協議規定的任何其他補償或賠償權利不重複的前提下，您應向公司賠償您違反本協議導致的任何損失、責任、索賠、指控、行動、訴訟、程式、利息、罰款、損害、稅費或費用（統稱“損失”，包括合理的律師費），並就此向公司提供辯護，保證公司不因此遭受該等損害。</span></p></li><li><p><strong><span>關鍵風險因素及免責聲明</span></strong></p><ol start='' ><li><span>非存款本協定項下的組合產品不等同於存款。因此，客戶不得將組合產品視為普通儲蓄或存款的替代品。</span></li><li><span>市場風險虛擬貨幣價格波動巨大。客戶收到的組合產品回報總額，可能大幅低於其他投資的回報或利息。若虛擬貨幣市場失靈，您在到期日收到的結算金額（以結算幣種支付）的市場價值可能大幅低於您投資金額的市場價值。</span></li><li><span>流動性風險一旦客戶投資公司提供的某種組合產品，任何提前支取或者提前終止都將不被允許。</span></li><li><span>不作保證訂單系統“照原樣”在“可得”基礎上提供，不作任何類型的保證，公司特別排除與訂單系統有關的一切明示和默示保證，包括但不限於無缺陷、適銷性、適合特定用途或者不侵權、訂單系統不中斷、無錯誤或無有害內容，以及您提供的資訊安全不會丟失或損壞的保證。有關訂單系統品質和性能的風險，只要不是公司蓄意不當行為導致，就應全部由您承擔。本免責聲明構成本協議不可或缺的組成部分。除本協議項下所允許的以外，本協定不授權對訂單系統進行任何其他使用。</span></li></ol></li><li><p><strong><span>期限和終止</span></strong></p><p><span>本協議自簽署之日起開始生效，並應生效至協議任一方在任何時間，出於任何原因或者無任何原因，提前一（1）個月書面通知另一方終止為止。但前提是，任何終止均不影響終止之前雙方已通過訂單系統簽署的任何購買訂單。</span></p></li><li><p><strong><span>不可抗力</span></strong>
+<span>平臺由於不可抗力無法履行本協議項下其義務的，平臺不應就該不可抗力引起或導致您遭受的任何一切損害或責任，向您承擔任何責任。</span></p></li><li><p><strong><span>保密和不披露</span></strong></p><ol start='' ><li><p><span>保密客戶知曉保密資訊的性質，並應保護好保密資訊，不向任何協力廠商提供、傳輸或披露保密資訊，不將保密資訊用於本協定範圍以外的用途，亦不開展有悖保密資訊保密性的任何活動；但前提是，上述規定不適用於：</span></p><ul><li><span>客戶有義務披露，或者適用法律要求客戶披露；</span></li><li><span>事先經公司書面同意；以及向其員工或者專業人員披露，例如律師、註冊會計師、審計師和稅務會計師等（但前提是，客戶應及時將該披露通知公司）。</span></li></ul></li><li><p><span>除外資訊上述保密義務應不適用於下列資訊：</span></p><ul><li><span>披露時已經公開的資訊；</span></li><li><span>披露時客戶已經正當擁有的資訊；</span></li><li><span>經被授權的協力廠商合法披露的，且被披露後無需承擔保密義務的資訊；或者</span></li><li><span>披露後被公開，但該公開非因收到資訊的客戶的違法行為或者其引起的事件導致的資訊。</span></li></ul></li></ol></li><li><p><strong><span>其它條款</span></strong></p><p><span>本協定的簽署、履行、終止和解釋，均應適用BVI法律。在本協議履行過程中，如雙方發生爭議，不能協商解決的，任何一方有權將爭議提交BVI國際仲裁中心。根據提交仲裁時有效的BVI國際仲裁中心管理仲裁規則進行仲裁和最終解決。仲裁程式應該以英語進行，仲裁裁決是終局的，對雙方具有約束力。除非仲裁裁決另有規定，仲裁費用由敗訴方承擔。敗訴方應當賠償勝訴方的律師和其它費用。</span></p></li><li><p><strong><span>雜項條款</span></strong></p><ol start='' ><li><span>本協議項下要求或准許的任何通知、同意或者其他通訊，均應為書面形式，並應被視為在Metalpha通過Metalpha平臺或電子郵件發出之時正式送達。</span></li><li><span>協定雙方同意，使用者可在Metalpha平臺上通過電子方式（無論是電子簽署還是其他形式，包括用戶點擊“【同意】”）接受或簽署本協議。通過此種方式簽署或交付本協定，在法律效力和可執行性方面，應等同於與親筆簽名，並對所有協議各方均有效且具有約束力。</span></li><li><span>本協定的任何部分被認定不合法、無效或者不可執行的，本協定其餘部分應不受影響。</span></li><li><span>本協議應以英語版本為准，優先於其他譯本。</span></li></ol></li></ol></div></div>
+</body>
+</html>
