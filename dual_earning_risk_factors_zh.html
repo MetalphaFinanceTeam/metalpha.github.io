@@ -1,0 +1,598 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit; background-repeat: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
+.CodeMirror-linenumber { }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit; background-repeat: inherit; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background-color: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; }
+a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background-color: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571429rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+ @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
+</style><title>Risk Factors Zh</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h3 id='風險因素'><span>風險因素</span></h3><p><span>我們敦促潛在的投資者仔細審閱並就 &quot;</span><strong><span>風險因素</span></strong><span> &quot;這一部分諮詢獨立的專業顧問。</span></p><p><span>對相關產品的投資會帶來某些風險。對某些產品的投資需要對結構性產品的性質有充分的瞭解。相關產品的潛在投資者應該對複雜金融工具的投資有經驗，並瞭解相關風險。相關產品的潛在投資者應根據該投資者的特定情況確定該投資的適宜性。 </span></p><p><span>潛在的投資者不應投資於該產品，除非該投資者（獨自或在財務顧問的幫助下）擁有專業知識來評估該產品在不同的條件下的表現、對相關產品的市場價值的影響以及此類投資對該投資者的整體投資組合的影響。 </span></p><p><strong><span>與產品相關的風險</span></strong><span> </span></p><p><strong><span>全部本金損失的風險</span></strong><span> </span></p><p><span>相關產品涉及高風險，而且相關產品的潛在投資者應認識到，在某些特定情況下，相關產品的贖回價值可能為零。因此，潛在投資者應準備好承受其投資金額的部分或全部損失。 </span></p><p><strong><span>產品價值的不可預測</span></strong><span> </span></p><p><span>在產品的期限內，該產品的價值和預期回報可能受到許多因素的影響，其中一些或所有因素可能是不可預測的。許多經濟和市場因素都將會影響該產品的價值。發行人預計，一般而言，掛鉤標的的價值和波動性將比任何其他單一因素更能影響產品的價值。 </span></p><p><span>然而，潛在的投資者不應期望產品的價值與掛鉤標的的價值變化成比例。本產品的回報（如有）可能與投資者直接投資于該掛鉤標的時獲得的回報關係不大，甚至可能遠低於後者。 </span></p><p><span>產品的價值和收益（如有）將受到其他幾個因素的影響，這些因素可能是不可預測的或發行人無法控制的，而且可能相互抵消或放大，包括但不限於。 </span></p><p><span>-</span><span>    掛鉤標的市場價值變化的預期頻率和幅度。 </span></p><p><span>-</span><span>    影響發行人、掛鉤標的或加密貨幣市場的經濟、金融、政治、監管事件或司法決定。 </span></p><p><span>-</span><span>    一般市場上的利率和收益率；以及</span></p><p><span>-</span><span>    發行人的信用。</span></p><p><span>這些因素中的一部分或全部可能會影響產品的價格。上述任何因素的影響可能會加強或抵消由另一個或多個因素造成的部分或全部變化。 </span></p><p><strong><span>於掛鉤標的的敞口暴露</span></strong></p><p><span>本產品將代表與掛鉤標的的表現掛鉤的投資。掛鉤標的過去的表現並不代表未來的表現。 </span></p><p><span>任何其他方沒有任何義務購買或持有掛鉤標的或掛鉤標的中所含任何成分的權益 </span></p><p><span>投資者應注意，發行人或任何其他方沒有義務購買、持有、管理或出售掛鉤標的中的任何權益，也沒有義務擁有與上述任何一項或掛鉤標的所含任何組成部分有關的任何權利、所有權、權益或利益，而且沒有任何人有權獲得或任何人擁有任何所有權權益的實際資產組合。 </span></p><p><strong><span>缺少二級市場</span></strong><span> </span></p><p><span>對該產品的投資是一種沒有流動性的投資，因為贖回該產品的權利受到限制，因此涉及較高風險。只有那些有經濟能力維持其投資並能承受全部或大部分投資損失的投資者，才應該投資於該產品。此外，發行人預計該產品將不會有二級市場。因此，投資者可能只能通過按照產品的發行條款贖回產品來實現他們在產品中的投資。</span></p><p><strong><span>提前贖回</span></strong><span> </span></p><p><span>投資者必須留意本產品可能會被提前贖回。在發生特殊事件時，發行人有權提前贖回產品。如果發行人行使這種提前贖回權，投資者應注意提前贖回的價格（終止金額）可能遠低於初始價格（或相關投資者為產品支付的價格，如有不同）或本應在到期日得到的贖回金額。 </span></p><p><strong><span>產品其他特定風險</span></strong></p><p><span>投資者應注意與投資本產品有關的潛在損失與掛鉤標的的表現有關。 </span></p><p><span>本產品的投資者應準備好承受其投資的部分或全部損失。擁有本產品與擁有掛鉤標的不同。 </span></p><p><span>因此，掛鉤標的的市場價值變化可能不會導致產品的市場價值出現類似的變化。 </span></p><p><strong><span>與發行人有的風險</span></strong><span> </span></p><p><span>投資者承擔發行人的信用風險。產品的價值不僅取決於掛鉤標的價值的變化，也取決於發行人的信用，這可能會在產品的期限內發生變化。投資者面臨著發行人的違約風險。 </span></p><p><strong><span>與加密資產作為掛鉤標的有關的特殊風險</span></strong><span> </span></p><p><strong><span>一般風險</span></strong></p><p><span>加密資產（如加密貨幣）的用戶，面臨著安全風險。 因此，擁有加密資產和作為掛鉤標的產品的投資者，面臨著欺詐和損失的高風險，包括但不限於通過網路攻擊。例如，一些專門銷從事比特幣等加密資產的交易所已經不得不停止交易，或因包括網絡攻擊在內的其他原因而關閉。加密資產（如產品的掛鉤標的或其組成部分）以及用作抵押品的加密資產（如本金）都可能被盜。加密資產存儲在加密錢包中，可通過私鑰訪問，而私鑰可能會被洩露。雖然加密錢包不存儲或包含基礎貨幣，但它們存儲公鑰和私鑰，作為接收加密資產或花費加密資產的地址，這兩種形式的交易都記錄在公共不可變的帳本上，即區塊鏈上。通過使用私鑰，一個人能夠使用加密資產，將其從帳戶中發送出去，並將該交易記錄在不可更改的分類帳本，即區塊鏈上。如果私鑰被洩露，與該特定公鑰相關的加密資產可能會被盜。與傳統的銀行交易不同，一旦交易被記錄到區塊鏈上，就無法撤銷。 </span></p><p><span>盜竊和網路攻擊可能會對相關貨幣或市場的聲譽產生負面影響，從而對加密資產的市場價格產生負面影響。通過這些產品，投資者將間接受到這種負面表現，並有可能出現損失，包括全部損失。雖然發行人和本金的託管人已經採取了合理的措施，以防止產品掛鉤標的或其組成成分被盜或被黑客入侵，但不能完全排除此類事件，而與此類事件相關的損失也將由投資者承擔。此外，除本金以外的加密資產被盜或黑客攻擊事件也可能對用作特定產品的掛鉤標的、本金和抵押品的加密資產的市場價格、價值或流動性產生負面影響。。</span></p><p><span>某些加密資產，如比特幣，可以匿名使用，不需要通過政府機構或銀行進行交易。它們可以直接從所有者或某個交易場所購買，而這些平臺一般不受監管。因此，當發行人在更廣泛的加密資產市場上發現發生交易中斷時，投資者面臨著的風險也會增加，這可能會進一步影響產品的投資價值。 </span></p><p><span>大多數加密資產的市場價值不是基於任何形式的索賠，也沒有任何實物資產的支持。相反，市場價值完全取決於在未來交易中可用的預期和投資者的持續興趣。預期和市場價值之間的這種強烈關聯性，也是大多數加密資產的市場價值目前和可能未來波動的基礎，並可能增加動能定價的可能性。  </span></p><p><strong><span>特定國家的監管風險</span></strong></p><p><span>加密貨幣資產的法律地位在不同國家有很大差異。在許多國家，法律地位仍未確定或正在發生變化。一些國家認為使用比特幣是非法的。有些國家也已經禁止了加密資產，禁止當地銀行與加密資產合作，或以其他方式限制加密資產。此外，加密資產的地位仍未確定，加密資產是否是一種證券、貨幣、商品或財產，也存在不確定性。在一些國家，如美國，不同的政府機構對加密資產有不同的定義，導致了監管衝突和不確定性。這種不確定性因法規的快速演變而變得更加複雜。各國在未來可能會明確限制、取締或削減加密資產的獲取、使用、交易或贖回。在這種情況下，持有或交易連結到加密資產的產品，可能被視為非法，並可能受到制裁。 </span></p><p><strong><span>加密貨幣資產監管的變化和監管呼籲</span></strong><span> </span></p><p><span>對加密資產的監管可能會有變化。因此，不能排除國家當局和法院或國際標準制定機構對加密資產或與加密資產掛鉤的產品的監管處理在未來可能會發生變化。由於這些變化，購買和/或直接或間接投資連結到加密資產、加密資產或某些加密資產的產品，包括掛鉤標的或相關產品，可能會被禁止或受到其他限制。 </span></p><p><span>根據條款和條件，發行人可以贖回產品，尤其是出於影響相關產品或掛鉤標的的監管變化（監管要求）。因此，投資者在作出購買產品的任何決定之前，應諮詢其個人法律顧問，必須瞭解並準備承擔因監管原因而可能提前贖回的風險。發行人及其附屬機構不承擔任何有關投資於產品的不利監管後果的責任。 </span></p><p><span>此外，對加密資產或某些加密資產（包括掛鉤標的或其組成部分）的監管發生變化，可能對發行人、產品的價值、掛鉤標的或其組成部分的價值以及本金的價值產生不利影響。因此，投資者需承擔損失部分或全部投資的風險。  </span></p><p><strong><span>與加密資產有關的稅務風險</span></strong><span> </span></p><p><span>加密貨幣資產和相關產品的稅務要求可能因司法管轄區而有很大差異，並有可能會有重大修訂。這些修訂，或在其他司法管轄區應用新的稅收計劃或稅務要求，可能會對發行人的業績產生不利影響。此外，加密資產的地位仍未確定，相關的加密資產是否是一種證券、貨幣、商品或財產，存在不確定性。因此，加密資產的徵稅方式因國家而異。在作出投資產品的決定之前，投資者應該諮詢他們當地的稅務顧問關於稅收的問題。 </span></p><p><span>發行人可能面臨重大的稅務風險。任何重大的稅收負擔都可能阻礙發行人繼續按預期經營的能力。 </span></p><p><strong><span>加密資產的估價</span></strong><span> </span></p><p><span>加密資產的市場價值與任何特定的公司、政府或資產都沒有關係。這些資產的估值取決於對網路價值的未來預期、交易數量和資產的整體使用情況。這意味著，加密資產中的大量價值是投機性的，並可能導致波動性增加。根據加密資產的估值，投資者可能會因為產品對掛鉤標的或其組成部分的敞口，而經歷重大的收益、損失和/或波動。 </span></p><p><span>估值也可能因地域而大不相同，因為當地交易所不一定與所有加密資產相容，而且資產可能難以進出任何特定市場。因此，地域套利可能會對估值產生相當大的影響，進而對掛鉤標的或其組成部分和相關產品的回報產生重大影響。 </span></p><p><span>加密資產的動能定價以前曾導致對此類資產未來升值或貶值的猜測，並進一步加劇波動和迅速推高或推低價格。此趨勢，未來可能會繼續影響。因此，由於投資者對該資產類別的未來前景的信心改變，加密資產的定價可能會發生變化。這些動態可能會影響產品的投資價值。  </span></p><p><strong><span>市場濫用的可能性</span></strong></p><p><span>掛鉤標的及其組成部分的市場正在迅速增長。這些市場有地方的、國家的也有國際的，還包括範圍更廣的產品和參與者。重大交易可能發生在具有最大可預測性的系統和平臺上。任何掛鉤標的及其組成部分在供需上突然、快速的變化，尤其是那些市值或單價較小的證券，都可能導致價格大幅波動。此外，大多數加密資產沒有任何中央政府的支持，導致不同國家和地區的監管標準不同（見 &quot;特定國家的監管風險&quot;）。雖然發行人盡量只與受監管或自律的交易所互動，並有 &quot;瞭解你的客戶&quot;/&quot;反洗錢 &quot;政策，但還有許多其他加密資產交易所的嚴格檢查要少得多。此外，也不能保證發行人使用的KYC/AML政策足夠健全。某些市場參與者可以利用掛鉤標的及其基礎設施的特點，通過跨不同系統、平台或地理位置的搶先交易、欺騙、暴漲和欺詐等計劃來利用套利機會。由於監督較少，這些計畫在加密資產市場可能比一般金融產品市場更普遍。 </span></p><p><span>任何市場濫用，以及投資者對掛鉤標的及其組成部分失去信心，都可能對產品的投資、發行人的經營能力以及任何單掛鉤標的或整個加密資產的廣泛定價趨勢產生不利影響。 </span></p><p><strong><span>加密貨幣交易所的风险</span></strong></p><p><span>加密貨幣交易所的交易中斷和加密貨幣交易所失敗的潛在後果可能對標的物和產品的表現產生不利影響。加密貨幣交易所經營的網站，使用者可以用加密資產交易法定貨幣，如美元和歐元，或其他數字資產。如果交易所將資金混合在一起，並且不為每個客戶提供唯一的錢包位址，那麼這些交易所的交易可能與使用者之間通過各自的加密貨幣網路轉移加密資產無關。例如，混合是指缺乏對客戶資產的隔離，是許多加密貨幣交易所的常見做法。這些交易所可能不會為每個用戶提供單獨的錢包，因此，可能有一個或多個由幾個用戶的資產混合組成的大型錢包。這導致大量資產集中在一個地方，因此可能會增加因為駭客攻擊等負面情況下的損害或盜竊。 </span></p><p><span>因此，有時加密資產在加密資產交易所的交易只記錄在加密資產交易所的內部分類帳上，而每筆交易的內部分類帳條目將對應於政府貨幣或其他數位資產的抵消交易條目。要在加密交易所出售加密資產，用戶需要將把加密資產（使用加密資產網路）從他或她本人的錢包轉移到加密交易所錢包。反之，為了在加密交易所購買加密資產，用戶將把法幣或其他數字資產轉移到加密交易所。完成加密資產或法幣的轉移後，用戶將執行其交易，並收到加密資產（使用加密資產網路）或法幣返回其帳戶。 </span></p><p><strong><span>與加密貨幣資產有關的技術風險</span></strong><span> </span></p><p><span>加密貨幣資產的投資者面臨著許多技術風險，包括但不限於代碼的缺陷、基礎協議的分叉、雙重消費和51%的攻擊等，下文將進一步介紹。 </span></p><p><span>比特幣、乙太幣和其他加密資產通常建立在向公眾開放的開源代碼上。這使得這些加密資產的底層代碼對任何人、任何地方都是公開可見的。雖然頂級加密資產有時有專門的貢獻者團隊，但通常情況下，他們是無償的，而不是全職雇員或承包商。由於這些原因，已發佈和公開的原始程式碼中的缺陷或錯誤有可能導致對底層技術、加密資產和網路的災難性破壞。志願者或不專職的團隊成員有可能無法在這種損害進一步蔓延之前阻止它。更有可能的是，一個專門的團隊或一組貢獻者或其他技術團體可能會攻擊代碼，直接導致災難性的損害。在上述任何一種情況下，投資者所持資產的價值都會受到嚴重的不利影響。 </span></p><p><span>加密資產礦工通過確認交易和達成共識來獲得加密資產。這一協定的結果顯示在被稱為區塊鏈的公共帳簿上。如果單個礦工或一組協同行動的礦工控制（即使是暫時的）特定區塊鍊網絡的大部分網絡挖礦算力（稱為哈希算力），他們可以利用這種控制權來進行有害行為。這樣的攻擊被稱為51%攻擊。例如，控制大多數比特幣網路的個人或團體可以阻止交易在區塊鏈上準確發佈，或者根本不發佈。此外，他們可以允許他們的硬幣在多個場合被花費，在這種情況下，他們會有足夠的網路控制權來確認和發佈這些交易到區塊鏈上，這種攻擊被稱為雙重消費。在雙重消費的情況下，發佈在公共帳目區塊鏈上的相關交易記錄將被偽造。這可能對發送方和接收方都有不利影響。邪惡的網路犯罪分子有多種方式可以嘗試雙重消費，包括但不限於向網路發送兩個衝突的交易，以及創建一個交易，但在向區塊鏈發佈該相關區塊之前發送加密資產，這將使其失效。在一個有多個貨幣交易對的交易所，控制區塊鏈網路大部分的個人或個體有可能將他們控制的數字貨幣進行雙重消費，然後隨後將其交易為其他貨幣對，並將其從交易所轉移到自己的私人錢包。這種情況更有可能發生在較小的貨幣上（按市值衡量），因為控制大部分網路所需的計算能力門檻降低，並且已被記錄多次發生，比如針對比特幣黃金和Verge等貨幣的攻擊。理論上，即使有時計算成本很高，也有可能對包括乙太幣和比特幣在內的大型貨幣（按市值衡量），進行類似的51%或雙重消費攻擊。掛鉤標的及其組成部分也可能受到技術風險的負面影響，如51%的攻擊或雙重消費。 </span></p><p><span>為比特幣和乙太幣等加密資產提供動力的基礎設施和生態系統是由不同方面開發的，包括附屬和非附屬工程師、開發商、礦工、平臺開發商、佈道者、行銷人員、交易所運營商和其他圍繞有關基礎加密資產服務的公司，他們每個人都可能有不同的動機、驅動因素、理念和激勵措施。因此，存在著一個風險，即這些方面對這些技術的未來方向有不同意見，這可能會阻礙或以其他方式對技術的發展產生負面影響，並反過來導致投資者的投資損失。 </span></p><p><span>在分歧特別大的情況下，一個開發者或一群開發者可以將代碼庫分成兩個或更多的開發變化分支，即所謂的分叉。 迄今為止，最突出的例子之一是2017年發生的比特幣分叉，於2017年8月1日生效，它創造了名為比特幣現金的加密貨幣。雖然比特幣現金是最大的比特幣分叉（按市值計算），但比特幣至少在網絡層面有三個主要的分差（Bitcoin XT、BitcoinClassic和Bitcoin Unlimited），以及在加密貨幣層面有另外三個主要分叉（Bitcoin Cash（BCH）、Bitcoin Gold（BTG）和Bitcoin Private（BTCP））。未來，比特幣的網路和/或加密貨幣層面有可能被分叉更多次。第二大加密貨幣（以市值衡量）乙太幣也發生了同樣的情況。在對基於以太坊的名為 The DAO 的風險投資項目進行惡意攻擊後，創建了新分叉的加密貨幣 乙太幣(ETH)，從而消除了黑客攻擊的影響。社區中拒絕硬分叉的小組繼續使用原始的以太坊區塊鏈，理由是不可變性（原則上反對區塊鏈的任何變化），今天被稱為乙太經典（ETC）。分叉出現在整個加密資產範圍內，不僅限於最大或最受歡迎的產品。。 </span></p><p><span>分叉可能對加密資產的價值產生不利影響，包括對加密貨幣分配產生負面影響，或者如果新分叉的加密資產被從主要指數或作為任何產品標的的另一個適用指數中刪除一個或多個月，則無法獲取其全部價值。  </span></p><p><strong><span>使用和網路參與</span></strong><span> </span></p><p><span>今天，加密資產在零售、商業或支付領域的使用有限。相對而言，投機者占了用戶的很大一部分。這種模式可能導致價格波動過大。 </span></p><p><span>此外，對於已開採的加密資產，如比特幣和乙太幣，礦工為各自網路貢獻處理能力的動力將隨著時間推移而減少（見&quot;處理能力的擴張&quot;）。對交易收費的實施可能會導致這些或其他協議在零售、商業和支付領域的使用量減少並限制其擴張，對產品的投資產生不利影響（見&quot;串通提高交易費用的可能性&quot;）。相反，如果對礦工的獎勵或交易費用的價值不足以激勵礦工，他們可能會停止為任何區塊鏈花費處理能力來解決區塊和確認交易。 </span></p><p><strong><span>停止擴大處理能力</span></strong></p><p><span>礦工從新創建的加密資產（稱為 &quot;區塊獎勵&quot;）和交易驗證時收取的費用中產生收入。如果交易費和區塊獎勵的總收入低於礦工的成本，礦工可能會停止運營。此外，在相關加密資產網路出現分叉的情況下，一些礦工可能會選擇開採分叉產生的替代性新加密資產，從而降低原始區塊鏈的處理能力。採礦作業的急劇停止將減少區塊鏈上的集體處理能力，這將暫時降低向區塊鏈添加區塊的速度，從而對交易驗證過程產生不利影響，並使區塊鏈更容易受到惡意攻擊並獲得超過區塊鏈上50%處理能力的控制。儘管是暫時的，處理能力的降低可能導致交易確認時間的實質性重大延遲。對交易確認過程或採礦處理能力的任何信心下降都可能對產品的投資價值或發行人的經營能力產生不利影響。 </span></p><p><strong><span>串通提高交易費用的可能性</span></strong><span>  </span></p><p><span>加密資產礦工，以其交易確認的身份運作，為他們確認的每筆交易收取費用。礦工通過將之前未確認的交易添加到區塊鏈的新區塊中來驗證未確認的交易。礦工不會被迫確認任何具體的交易，但他們在經濟上被激勵去確認有效的交易，作為收取費用的一種手段。因為礦工確認未確認的交易的邊際成本很低，礦工歷來接受相對較低的交易確認費。如果礦工以反競爭的方式串通，拒絕低交易費，那麼加密資產用戶可能被迫支付更高的費用，從而降低相關加密資產網路的吸引力。加密資產的挖掘在全球範圍內進行，當局可能難以在多個司法管轄區適用反壟斷法規。礦工之間的任何勾結都可能對加密資產網路的吸引力產生不利影響，並可能對產品的投資價值或發行人的經營能力產生不利影響。 </span></p><p><strong><span>影響市場的事件</span></strong><span> </span></p><p><span>相關掛鉤標的的價格可能會受到投資於或以其他方式跟蹤加密貨幣市場的工具的影響。這些工具包括但不限於期貨合約、基金和交易所交易產品。如果這些投資於該資產類別的工具中的任何一種佔需求或供應的很大一部分，大量的發行或贖回可能會影響該資產的全球價格和產品的價值。</span></p><p><strong><span>創新</span></strong><span> </span></p><p><span>目前尚不清楚隨著該行業不斷創新和發展，哪些加密資產將佔據主導地位。任何加密貨幣生態系統的變化都可能對加密資產的定價和流動性產生不利影響，因此也可能對產品產生不利影響。 </span></p><p><strong><span>競爭</span></strong><span> </span></p><p><span>加密資產面臨著彼此之間的巨大競爭，以及來自其他技術或支付形式的競爭(如Swift、ACH、匯款網路、信用卡和現金)。加密資產在全球支付中只占很小的比例。無法保證加密資產將成為一種主流的支付形式、價值儲存或交換方法。 </span></p><p><strong><span>流動性和交易量有限</span></strong></p><p><span>加密資產的流動性明顯低於其他主要貨幣，如美元、歐元或日元，以及某些股票、債券和結構性產品。因此，有更大的可能性發生影響市場的事件，如單一的大型出售可能會影響到全球市場。此外，由於整體流動性較低，也可能出現流動性緊縮。在這種情況下，可能難以或無法購買或出售相關的加密資產，從而導致價值的重大損失。隨著加密資產的市值和流動性下降，這種風險會顯著增加，因此，對於市值較低的資產，如萊特幣和比特幣現金，這種風險可能更為重要。</span></p><p><strong><span>大規模出售加密貨幣資產</span></strong></p><p><span>國內或外國司法管轄區的政治或經濟事件，可能會促使大規模購買或出售加密資產。大規模的加密資產出售可能導致加密資產價格下跌，這可能對產品投資產生不利影響。 </span></p><p><strong><span>早期加密貨幣資產採用者的行動</span></strong></p><p><span>沒有註冊表顯示哪些個人或實體擁有加密資產或任何特定個人或實體擁有的加密資產數量。一小部分早期的加密資產採用者有可能，而且事實上有理由相信，他們持有迄今為止已創建的加密資產的很大一部分。目前沒有任何法規可以阻止加密資產的大持有人出售他們的加密資產。這種加密資產的出售可能對加密資產的價格和產品的投資產生不利影響。 </span></p><p><strong><span>與特定掛鉤標的或掛鉤標的組成部分有關的風險因素</span></strong><span> </span></p><p><strong><span>比特幣（BTC）特有的風險</span></strong><span> </span></p><p><span>生產風險：比特幣是一種挖礦貨幣，需要大量使用能源、空間和計算能力。如果對加密資產礦工的激勵不足，或者驗證交易的成本不成比例地增長，礦工可能會過渡到其他網路，這反過來可能會減緩交易驗證和使用。比特幣生產或比特幣交易驗證的任何中斷都可能對該資產的價格產生負面影響。 </span></p><p><span>有限的使用情況。比特幣有時不適合即時支付，因為交易可能需要相當長的時間來結算。因此，它不適合於一些商業用途。如果比特幣不能成為一種價值儲存資產或滿足另一種商業用途的需要，這可能會導致網路的使用率下降。 </span></p><p><strong><span>乙太幣（ETH）特有的風險</span></strong><span>  </span></p><p><span>生產風險：乙太幣是一種挖礦貨幣，需要大量使用能源、空間和計算能力。如果對加密資產的礦工的激勵不足，或者驗證交易的成本不成比例地增長，礦工可能會過渡到其他網路，這反過來可能會減緩交易驗證和使用。乙太幣生產或乙太坊交易驗證的任何中斷都可能對該資產的價格產生不利影響。 </span></p><p><span>用途。雖然乙太幣有望在支付之外有廣泛的用途，但這些用例的規模仍然有限。目前還不清楚乙太幣的用途將如何繼續發展。如果這些額外的用例不能實現，可能會給乙太坊網路帶來巨大的價值損失。 </span></p><p><span>共識機制的改變。乙太坊網路正在轉向 &quot;權益證明&quot;，這帶來了某些獨特的風險，例如，在乙太坊網路中擁有大量可用乙太幣份額的行為者的惡意單邊行動。在這種情況下，可能出現的惡意單邊行動包括按雙重消費、分叉、停止和拒絕交易以及阻止新交易在乙太坊網路上被確認。這可能對產品的投資產生不利影響。</span></p></div></div>
+</body>
+</html>
