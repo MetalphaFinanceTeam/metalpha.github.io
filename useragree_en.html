@@ -1,1 +1,595 @@
 
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>Terms of User Registration</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><p><strong><span>Metalpha’s Terms of User Registration</span></strong></p><p><span>Metalpha operating Program (hereinafter referred to as “</span><strong><span>this Program</span></strong><span>” or “</span><strong><span>Program</span></strong><span>”), is a platform operated by Metalpha Technologies Limited (hereinafter referred to as “</span><strong><span>we</span></strong><span>”, “</span><strong><span>us</span></strong><span>” or “</span><strong><span>Metalpha</span></strong><span>”) to provide digital asset-related Services (hereinafter referred to as “</span><strong><span>Service</span></strong><span>”) for the registered users (hereinafter referred to as “</span><strong><span>you</span></strong><span>”). For the convenience of the expression of this Agreement (defined below), we and you are collectively referred to as the “</span><strong><span>Parties</span></strong><span>” in this agreement, and we or you are solely referred to as the “</span><strong><span>Party</span></strong><span>”.</span></p><p><span> </span></p><p><strong><span>Special Notice</span></strong><span>：</span></p><p><span>Before you use the Service, you should read the Terms (defined below) carefully, and if there is any doubt about the Terms or other necessary matters, please consult with a professional lawyer. If you do not agree to this Agreement and/or amendments thereto at any time, you shall immediately cease to use the Services or stop logging in this Program. Logging into this Program, using any Service of this Program or any other similar behavior indicate that you understand and fully agree with the contents of this Agreement (including any modifications we may make to this Agreement from time to time) and </span><strong><span>this</span></strong><span> </span><strong><span>Agreement</span></strong><span> </span><strong><span>will be binding upon you. You shall not claim the invalidity of</span></strong><span> </span><strong><span>the Agreement</span></strong><span>, or request for revocation of this </span><strong><span>Agreement</span></strong><span> </span><strong><span>on the grounds that you have not read this Agreement.</span></strong><span> </span></p><p><span> </span></p><p><strong><span>We would like to remind you:</span></strong></p><p><strong><span>Digital asset trading has extremely high risks and is not suitable for most people. You understand and</span></strong><span> </span><strong><span>acknowledge</span></strong><span> </span><strong><span>that this transaction may cause partial or total loss, so you should decide on whether to proceed with these transactions based on the degree of loss that you can bear. You understand and</span></strong><span> </span><strong><span>acknowledge</span></strong><span> </span><strong><span>that digital assets will generate derivative risks. Accordingly, if you have any questions, it is recommended that you seek professional advice first. In addition to the risks mentioned above, there will also be unpredictable risks. You should carefully consider and use clear judgment to evaluate your financial situation and the aforementioned risks before making any decision to buy or sell digital assets, as you will solely bear all losses arising therefrom</span></strong><span> </span><strong><span>and we</span></strong><span> </span><strong><span>will not be liable for any losses whatsoever.</span></strong><span> If we believe that you have violated this agreement based on our unilateral judgment or your use of the Services provided by this Program are illegal in accordance with the laws of your jurisdiction, we have the right to suspend or terminate your account at any time or suspend or terminate your use of the Services or digital asset transactions provided by this Program.</span></p><p><span> </span></p><p><strong><span>You Understand And Agree</span></strong><span>：</span></p><p><span>1 This Program is only a place for you to obtain information about digital asset-related Services and negotiate and carry out digital asset-related Services, so you should make your own judgment and determine the authenticity, legality and validity of the relevant digital assets and/or information, and bear the responsibilities and losses arising therefrom.</span></p><p><span>2 Any opinions, news, discussions, analysis, prices, suggestions and other information in this Program are general market comments and it neither constitutes investment advice nor any promise as to the authenticity or reliability of such content. We are not responsible for any losses whatsoever arising directly or indirectly from reliance on this information, including but not limited to any loss of profits.</span></p><p><span>3 The contents of this Program will be changed at any time without notice. We will not be responsible for any losses whatsoever directly or indirectly caused by the information in this Program, disconnection to Internet or delays or failures in transmission or receipt of any notices and information.</span></p><p><span>4 There are also risks associated with the use of Internet-based trading systems, including but not limited to the failure of software, hardware, and Internet links. Since we cannot control the reliability and availability of the Internet, we will not take any responsibility for distortions, delays and link failures.</span></p><p><span>5 This Program is Metalpha&#39;s only official public information platform about the Service.</span></p><p><span>6 It is forbidden to use this Program to engage in illegal transactions or illegal acts such as money laundering, smuggling, commercial bribery, etc. If any suspected illegal transactions or illegal acts are found, this site will adopt various methods that can be used, including but not limited to freezing the account, and notifying the competent authorities, etc. We do not assume any responsibilities arising therefrom and reserve the right to hold relevant Parties accountable.</span></p><p><span>7 It is forbidden to use this Program for all unethical trading activities.</span></p><p><span> </span></p><p><strong><span>Chapter 1. General Principles</span></strong></p><p><span>1.1 The “Terms of User Registration” (hereinafter referred to as the “</span><strong><span>Agreement</span></strong><span>” or the “</span><strong><span>Terms</span></strong><span>”) consists of the main text, the “Privacy Policy” and various rules, statements and instructions applicable to this Program and Services that Metalpha has published or may publish in the future. They are an integral part of this Agreement and have the same legal effect. Metalpha is entitled to amend these Terms or various rules from time to time if necessary and make public by publishing on its website without prior individual notice to you. The amended terms and rules will take effect automatically upon their publication on the website. If you disagree with the relevant amendment, you shall immediately cease to use the Program and Services, and you will be deemed to accept and agree to comply with the amended terms and rules if you continue to use the Program and the Service.</span></p><p><span>1.2 When you click on any button marked with &quot;Agree&quot; or similar meaning during the use of this Program, or actually use the Services provided by this Program in other ways permitted by this Program, it means that you fully understand, agree, accept and are bound to all the terms under the Agreement, and the absence of your handwritten written signature will not affect the legal binding nature of this Agreement on you.</span></p><p><span>1.3 If you use any of the Services and functions provided by this Program, you will be deemed to have read, understood and:</span></p><p><span>1.3.1 Accept all terms and conditions of this agreement.</span></p><p><span>1.3.2 You confirm that, in the case of a natural person, you have reached the age of 18 or the legal age to have the legal capacity or, in the case of a legal entity, to conclude an agreement according to the applicable laws. You further confirm that your use, transactions, and provision of information and other conduct of accepting the Services of this Program shall comply with the relevant laws and regulations of sovereign countries or regions that have jurisdiction over you and you have sufficient ability to accept these terms, and that you enter into transactions and use this Program for digital asset Services. If you do not meet the aforementioned qualifications, you and your authorized agent shall bear all the consequences resulting therefrom, and Metalpha reserves the right to cancel or permanently freeze your account, and to hold you and your authorized agent accountable. </span></p><p><span>1.3.3 You guarantee that the digital assets which belong to you and are involved in the transactions are legally obtained and owned. </span></p><p><span>1.3.4 You agree that you bear full responsibility for any gains or losses for your own trading or non-trading activities.</span></p><p><span>1.3.5 You agree to abide by any relevant laws and regulations, including reporting any trading profits for tax purposes.</span></p><p><span>1.3.6 You agree not to engage in or participate in any activity that harms the interests of this Program or Metalpha at any time, regardless of whether it is related to the Services provided by this Program.</span></p><p><span>1.3.7 This Agreement only sets out the rights and obligations between you and us, and does not affect the legal relationships and legal disputes due to digital asset transactions between users of this Program or between other Programs and you.</span></p><p><span> </span></p><p><strong><span>Chapter 2. Revised agreement</span></strong></p><p><span>We reserve the right to revise this agreement from time to time, make announcements in the form of Program announcements without notifying you individually. The amended agreement will be marked on the first page of this Agreement with the time of amendment, and once it is announced in the Program, it will automatically take effect immediately. You should browse and pay attention to the updated time and latest content of this Agreement from time to time. If you do not agree to the relevant changes, you should immediately stop using the Program Services, otherwise your continued use of the Program Services means that you accept and agree to the revised agreement. </span></p><p><span> </span></p><p><strong><span>Chapter 3. Use</span></strong></p><p><span>3.1 Qualifications</span></p><p><span>3.1.1 You confirm and promise that when you actually use the Services provided by this Program, you are a natural person, legal person or other organization that has the ability to enter into this agreement and use the Services of this Program as required by applicable laws. If you do not have the aforementioned subject qualifications, you and your authorized agent shall bear all the consequences resulting therefrom, and the company reserves the right to cancel or permanently freeze your account, and to hold you and your authorized agent accountable.</span></p><p><span>3.1.2 You confirm and promise that you are not on any lists of terrorist organizations and terrorists, such as the resolutions of the United Nations Security Council, nor are you restricted or prohibited by the regulatory authorities of your country from using any trading platform. </span></p><p><span>3.1.3 You confirm and promise that you are not a resident of the following countries or regions: Mainland China, Singapore, North Korea, Cambodia, Myanmar, Pakistan, Laos, Iran, Iraq, Afghanistan, Lebanon, Yemen, Syria, Maldives Islands, United States, Canada, American Samoa, The United States Virgin Islands, Cayman Islands, Guam, Haiti, Panama, Venezuela, Trinidad and Tobago, Puerto Rico, Northern Mariana Islands, Barbados, Jamaica, Botswana, Burundi, Congo, Ghana, Guinea Sau, Burkina Faso, Senegal, Kenya, Libya, Mozambique, Nicaragua, Sierra Leone, Somalia, South Sudan, Sudan, Zimbabwe, Uganda, Nigeria, Mauritania, Mali, Madagascar, Mauritius, Angola, Morocco and Albania.</span></p><p><span>3.2 Purpose of use</span></p><p><span>You confirm and promise: You do not use this Program for the purpose of violating laws and regulations or damaging this Program and Services.</span></p><p><span>3.3 Use matters</span></p><p><span>You should provide a valid e-mail address, mobile phone number and other information, and shall update such information promptly so that we can effectively contact you. If we cannot contact you, you shall bear any losses or increased costs in the process of using this Program and Services on your own. In accordance with the relevant laws and regulations of different jurisdictions, you must provide your real name, ID and other relevant information as required by laws and regulations, privacy clauses and anti-money laundering clauses, and keep updating such information to promptly meet the applicable requirements. You are responsible for the authenticity, completeness and accuracy of such information, and shall bear any direct or indirect losses or adverse consequences arising therefrom.</span></p><p><span> </span></p><p><strong><span>Chapter 4. Service</span></strong></p><p><span>This Program only provides online trading platform Services for you to conduct digital asset trading activities (including but not limited to Services such as digital asset transactions) through this Program.</span></p><p><span>4.1 Service content</span></p><p><span>4.1.1 You have the right to browse the product information of digital assets in this Program.</span></p><p><span>4.1.2 You have the right to view the information under your account in this Program, and you have the right to use the functions provided by this Program.</span></p><p><span>4.1.3 You have the right to participate in the Program activities organized by this Program in accordance with the activity rules published by this Program.</span></p><p><span>4.1.4 Other Services to provide promised by the Program.</span></p><p><span>4.2. Service Rules </span></p><p><span>You promise to abide by the following Service rules of this Program:</span></p><p><span>4.2.1 You should abide by the requirements of laws, regulations, and policies to ensure the legitimacy of the source of all digital assets. You must not engage in illegal or other activities that damage the rights and interests of this Program, Metalpha or third Parties in this Program or using the Services of this Program. Including but not limited to sending or receiving any information that is illegal, violating regulations, or infringing on the rights and interests of others, sending or receiving pyramid schemes or other harmful information or speech, using or forging email header information of this Program without authorization of this Program, etc.</span></p><p><span>4.2.2 You should abide by laws and regulations and properly use and keep your account and login password. You are fully responsible for any operations and consequences resulting from the use of your account and login password. In the event that this Program account, login password, or fund password or verification code is used by a third party without your authorization, or there are other account security issues, you should immediately notify this Program and request for this Program to suspend the Service of this Program account. This Program has the right to take action on your request within a reasonable time, but this Program does not bear any responsibility for the consequences (including but not limited to any losses) that have occurred before the action is taken. </span></p><p><span>4.2.3 You agree to be responsible for all activities that occur under your account and password for this Program (including but not limited to information release, information publication, online click to agree or submit to various rules and agreements, online agreement renewal or purchasing Services, etc.).</span></p><p><span>4.2.4 You must not interfere with the normal operation of this Program or interfere with other users&#39; use of this Program&#39;s Services by any technical means or other means and you must not maliciously slander the goodwill of this Program by fabricating facts or other means.</span></p><p><span>4.2.5 If you have disputes with other users due to online transactions, you must not request this Program to provide relevant information through channels other than judicial or administrative.</span></p><p><span>4.2.6 When you use the Services provided by this Program, the taxable tax, as well as all hardware, software, Service and other expenses incurred, shall be judged and borne by you alone.</span></p><p><span>4.2.7 You acknowledge that this Program may have some products and Service information which are available only to customers who have specific permissions. We do not ensure that you will be able to view or use all the information or Services.</span></p><p><span>4.2.8 You shall abide by this Agreement and other terms of Service and operating rules published and updated by this Program from time to time, and have the right to terminate the use of the Services provided by this Program at any time.</span></p><p><span>4.3 Product rules</span></p><p><span>4.3.1 Browse transaction information.</span></p><p><span>When browsing transaction information in this Program, you should carefully read all contents in the product information, including but not limited to price, service fee, etc. You can click the button to trade only after you fully accept all contents in the product information.</span></p><p><span>4.3.2 View transaction details. </span></p><p><span>You can view the transaction records through your account.</span></p><p><span>4.3.3 Cancellation/Modification. </span></p><p><span>You have the right to cancel or modify the relevant transaction at any time before the transaction of the Products is concluded.</span></p><p><span> </span></p><p><strong><span>Chapter 5. Rights and</span></strong><span> </span><strong><span>Obligations</span></strong><span> </span><strong><span>of Metalpha</span></strong></p><p><span>5.1 If you do not meet the qualification specified in these Terms, Metalpha has the right to deny your access to the Program. If you have used it, Metalpha reserves the right to cancel or permanently freeze your account, and to hold you and your authorized agent accountable. Meanwhile, Metalpha reserves the right to decide whether to accept your use of this Program under any other circumstances.</span></p><p><span>5.2 Metalpha may suspend or terminate your account and all related account(s), in its sole discretion when it discovers that you or the user of your related account are not suitable for high-risk investment.</span></p><p><span>5.3 Metalpha has the right to suspend or terminate the use of the account if it finds that the account user is not the initial user of the account.</span></p><p><span>5.4 Metalpha has the right to notify you to correct, update the information or suspend or terminate the Service of this Program for you if it reasonably suspects that the information you have provided is wrong, untrue, invalid or incomplete through technical testing, manual sampling and other testing methods.</span></p><p><span>5.5 Metalpha has the right to correct any information displayed in this Program when it finds obvious errors.</span></p><p><span>5.6 Metalpha has the right to modify, suspend or terminate any Services on the Program at any time. Metalpha may exercise its right to modify or suspend Services for the Program without prior notice to you. If Metalpha terminates one or more of the Services, such termination shall be effective on the date it publishes a termination notice on the Program.</span></p><p><span>5.7 Metalpha has the right to delete all kinds of content information in this Program that does not comply with laws and regulations or the terms of this Program at any time with no need to notify you in advance when exercising these rights.</span></p><p><span>5.8 Metalpha has the right to request that you provide more information or materials in accordance with the requirements of the laws, regulations, rules, orders and other standards of your home sovereign country or region and take reasonable measures to comply with the local requirements, and you are obliged to cooperate. This Program has the right to suspend or permanently stop the access to part of or all Services of the Program to you in accordance with the laws, regulations, rules, orders and other standards of your home sovereign country or region.</span></p><p><span>5.9 Metalpha is not obliged to conduct prior review of all users&#39; information data, asset information, transaction behavior and other matters related to the transaction unless required by laws and regulations or in the following circumstances: (1) Metalpha has reasonable reasons to believe that specific users may have major violations or defaults in specific transactions. (2) Metalpha has reasonable reasons to believe that the behavior of specific users in this Program is suspected of being illegal or improper.</span></p><p><span> </span></p><p><strong><span>Chapter 6.</span></strong><span> </span><strong><span>Compensation</span></strong></p><p><span>6.1 In any case, our liability to pay compensation for your direct damage will not exceed the total Service fee we charge you for your use of the Program for three (3) months.</span></p><p><span>6.2 To the extent permitted by law, if you violate these Terms or other laws and regulations, you will be required to make compensation of at least US $2 million and bear all expenses incurred (including attorney&#39;s fees). If the aforementioned compensation does not adequately cover our actual losses, you will be required to immediately cover the full extent of our actual losses. </span></p><p><span> </span></p><p><strong><span>Chapter 7. Right to</span></strong><span> </span><strong><span>Seek Injunction</span></strong></p><p><span>Both Parties acknowledge that the remedies at common law for your breach or threatened breach may not be sufficient to compensate for all our losses, so we have the right to seek injunction and all other remedies allowed at common law or equity.</span></p><p><span> </span></p><p><strong><span>Chapter 8. Limitation and</span></strong><span> </span><strong><span>Exemption</span></strong><span> </span><strong><span>of</span></strong><span> </span><strong><span>Liability</span></strong></p><p><strong><span>8.1 You understand and agree that under no circumstances shall we be liable for:</span></strong></p><p><strong><span>8.1.1 loss of income.</span></strong></p><p><strong><span>8.1.2 trading profits or contract losses.</span></strong></p><p><strong><span>8.1.3 losses caused by business interruption.</span></strong></p><p><strong><span>8.1.4 loss of money expected to be saved.</span></strong></p><p><strong><span>8.1.5 losses caused by information problems.</span></strong></p><p><strong><span>8.1.6 loss of opportunity, goodwill or reputation.</span></strong></p><p><strong><span>8.1.7 data damage or loss.</span></strong></p><p><strong><span>8.1.8 cost of purchasing alternative products or Services.</span></strong></p><p><strong><span>8.1.9 any indirect, special or incidental loss or damage arising from infringement (including negligence), breach of contract or any other reason, whether or not such loss or damage can be reasonably foreseen by us</span></strong><span> </span><strong><span>and whether</span></strong><span> </span><strong><span>or not we have been informed in advance of the possibility of such loss or damage.</span></strong></p><p><span>Clause 8.1.1 to clause 8.1.9 are independent of each other.</span></p><p><strong><span>8.2 You understand and agree that we will not be liable for any losses caused by any of the following circumstances:</span></strong></p><p><strong><span>8.2.1 your specific transaction may be in material violation of law or breach of contract.</span></strong></p><p><strong><span>8.2.2 your conduct in this Program is suspected of being illegal or immoral.</span></strong></p><p><strong><span>8.2.3 costs and losses arising from the purchase or acquisition of any data, information or transaction through the Services of this Program or alternative behavior.</span></strong></p><p><strong><span>8.2.4 your misunderstanding of this Program Service.</span></strong></p><p><strong><span>8.2.5 any other losses related to the Services provided by this Program not caused by us.</span></strong></p><p><strong><span>8.3 We are not responsible for the failure or delay of</span></strong><span> </span><strong><span>Services</span></strong><span> </span><strong><span>and any losses caused by the maintenance of information network equipment, failure of information network connection, failure of computer, communication or other systems, failure</span></strong><span> </span><strong><span>of power, weather, accidents, strikes, labor disputes, riots, uprisings,panic</span></strong><span>, </span><strong><span>lack of productivity or</span></strong><span> </span><strong><span>materials</span></strong><span> </span><strong><span>of production, fire, flood, storm, explosion, war,</span></strong><span> </span><strong><span>reasons of</span></strong><span> </span><strong><span>bank or other partners, collapse of digital asset market, government actions, orders of judicial or administrative</span></strong><span> </span><strong><span>institutions</span></strong><span> </span><strong><span>or other</span></strong><span> </span><strong><span>reasons</span></strong><span> </span><strong><span>beyond our control</span></strong><span>, </span><strong><span>beyond our</span></strong><span> </span><strong><span>capacity</span></strong><span> </span><strong><span>or</span></strong><span> </span><strong><span>caused by</span></strong><span> </span><strong><span>third Parties.</span></strong></p><p><strong><span>8.4 We cannot guarantee that all the information, programs and texts contained in this Program are completely safe and free from interference and destruction by any virus, Trojan horse and other malicious programs. Therefore, it is your personal decision to log in, use any Service of this Program or download and use any program, information and downloaded data, and you should bear the relative risks and possible losses.</span></strong></p><p><strong><span>8.5 We do not make any guarantee and commitment for any information, products and business of any third-party program which are linked to this Program and any other content that does not belong to us. If you use any Service, information and products provided by the third-party program, it is your personal decision, and you should bear all responsibilities arising therefrom.</span></strong></p><p><strong><span>8.6 We do not make any express or implied warranties with respect to your use of Services through the Program, including but not limited to the applicability, absence of error or omission, sustainability, accuracy, reliability or fitness for a particular purpose of the Services provided through the Program. We do not make any promises or guarantees for the availability, accuracy, correctness, reliability, quality, stability, completeness, timeliness of the technology and information provided through this</span></strong><span> </span><strong><span>Program</span></strong><span>. Whether to log in or use the Services provided by this Program is your personal decision, and you shall bear your own risk and possible losses. We do not make any express or implied guarantee for the market, value and price of digital assets. You understand that the digital asset market is unstable, the price and value of the digital asset will fluctuate or collapse at any time. Trading digital assets is your own choice and decision, and you will bear the risks and possible losses.</span></p><p><strong><span>8.7 Our warranties and undertakings set forth in these</span></strong><span> </span><strong><span>Terms</span></strong><span> </span><strong><span>are our sole warranties and representations with respect to the Services and the Program and are in lieu of all warranties and undertakings arising in any other way or manner, whether written or oral, express or implied. All these warranties and representations represent only our own commitments and guarantees, and do not guarantee that any third party will abide by these warranties and commitments.</span></strong></p><p><strong><span>8.8 We do not waive any rights not mentioned in these</span></strong><span> </span><strong><span>Terms</span></strong><span> </span><strong><span>to limit, exempt or set off our liability for damages to the fullest extent of the application of law.</span></strong></p><p><strong><span>8.9 After your use</span></strong><span> </span><strong><span>of</span></strong><span> </span><strong><span>the Service provided, you will be deemed to agree that any operation by us in accordance with the rules set out in these</span></strong><span> </span><strong><span>Terms</span></strong><span> </span><strong><span>shall be at your own risk.</span></strong></p><p><span> </span></p><p><strong><span>Chapter 9 Termination</span></strong></p><p><span>9.1 We have the right to terminate all Services of this Program in accordance with these Terms, and these Terms will terminate on the date of termination of all Services of this Program.</span></p><p><span>9.2 You have no right to require us to continue to provide you with any Services or perform any other obligations after these Terms terminate, including but not limited to requiring the Program to retain or disclose any information in its original Program account for you, and forward any information it has not sent to you or a third Party.</span></p><p><span>9.3 The termination of these Terms shall not affect the non-breaching Party&#39;s claim for other liabilities of the breaching Party.</span></p><p><span> </span></p><p><strong><span>Chapter 10 Intellectual Property Right</span></strong></p><p><span>10.1 All intellectual property rights contained in this Program, including but not limited to Program marks, database, Program designs, text and diagrams, software, photos, videos, music, voice and combinations thereof, software compilations, related source code and software (including applications and scripts) belong to this Program. You shall not copy, change, transmit or use any of the foregoing materials or contents for commercial purposes.</span></p><p><span>10.2 All rights contained in the Program name (including but not limited to goodwill, trademarks and marks) belong to Metalpha.</span></p><p><span>10.3 Your acceptance of these Terms shall be deemed as you voluntarily assigning the copyright of your information published by the Program in any form to the owner of the Program without compensation. The aforesaid copyright includes, but is not limited to, reproduction right, distribution right, rental right, exhibition right, performance right, projection right, broadcasting right, information network communication right, production right, adaptation right, translation right, compilation right and other transferable rights that should be enjoyed by the copyright owner and we have the right to file a separate lawsuit against any subject infringement and obtain full compensation. These Terms shall apply to any content protected by copyright laws that is published by you in this Program, whether the content is formed before or after the signing of these Terms.</span></p><p><span>10.4 You shall not illegally use or dispose of the Program or any intellectual property rights of others when you use the Program. You shall not publish any information which has published by the Program in any form or authorize other Programs (and media) to use it.</span></p><p><span>10.5 Your login to the Program or use of any Service of the Program will not be deemed as transferring any intellectual property rights to you.</span></p><p><span> </span></p><p><strong><span>Chapter 11 Information Protection</span></strong></p><p><span>Please refer to Privacy Policy about how we collect, use, and share your information.</span></p><p><span> </span></p><p><strong><span>Chapter 12</span></strong><span> </span><strong><span>Calculation</span></strong></p><p><span>All transaction calculation results have been verified by us and all calculation methods have been published on the Program. However, we cannot guarantee that the use of the Program will be uninterrupted or free of error, and we will not bear any liability to you for such interruption or error.</span></p><p><span> </span></p><p><strong><span>Chapter 13 Entire Agreement</span></strong></p><p><span> </span></p><p><span>This Agreement (together with our Privacy Policy and Product Purchase Agreement) constitute the entire agreement between the Parties regarding use of the Services and will supersede all prior discussion, understanding and agreements, whether oral or in writing, between the Parties.</span></p><p><span> </span></p><p><strong><span>Chapter 14 Force Majeure.</span></strong></p><p><span> </span></p><p><span>We will not be liable for any delay or failure to perform as required by this Agreement caused by any circumstances beyond our reasonable control.</span></p><p><span> </span></p><p><strong><span>Chapter 15</span></strong><span> </span><strong><span>Assignment</span></strong></p><p><span>The rights and obligations set forth in these Terms shall be binding upon the assignees, heirs, executors and administrators of the Parties who benefit from such rights and obligations. You may not assign or transfer any right to use the Service or any of your rights or obligations under these Terms to any third Party without our consent, but we may assign our rights and obligations under these Terms to any third Party at any time by giving you notice.</span></p><p><span> </span></p><p><strong><span>Chapter 16 Severability</span></strong></p><p><span>If any provision of these Terms is deemed to be unenforceable, invalid or illegal by any court of jurisdiction, the validity of the remaining provisions of this Agreement shall not be affected.</span></p><p><span> </span></p><p><strong><span>Chapter 17 Non-agency</span></strong><span> </span><strong><span>Relationship</span></strong></p><p><span>Nothing in these Terms shall be deemed to create, imply or otherwise constitute us as your agent, trustee or other representative, unless otherwise provided in these Terms.</span></p><p><span> </span></p><p><strong><span>Chapter 18 Waiver</span></strong></p><p><span>No waiver by us or you of any breach of contract or other responsibilities under these Terms shall be deemed or construed as a waiver of any other breach and the non-exercise of any right or remedy shall not be construed as a waiver of such right or remedy in any way.</span></p><p><span> </span></p><p><strong><span>Chapter 19 Governing Law and Jurisdiction</span></strong></p><p><span>These Terms and any claim or lawsuit arising from the Services contained in these Terms shall be governed, interpreted and enforced in accordance with the laws of British Virgin Islands.</span></p><p><span> </span></p><p><span>In case of any dispute between the Parties during the performance of this Agreement, if fails to be resolved through consultation, either Party is entitled to submit such dispute to the British Virgin Islands International Arbitration Centre (&quot;BVIIAC&quot;) for arbitration and final resolution in accordance with the Virgin Islands International Arbitration Centre Administered Arbitration Rules in force at the time of submission for arbitration. The arbitration proceedings shall be conducted in English. The arbitral award shall be final and binding upon the Parties. Unless otherwise determined in the arbitral award, the arbitration fee shall be borne by the losing Party. The losing Party shall also reimburse attorney&#39;s fee and other expenses incurred by the winning Party. </span></p><p><span> </span></p><p><strong><span>Chapter 20 Effectiveness and interpretation of the Terms</span></strong></p><p><span>20.1 These Terms shall take effect from the time that you click on the page of the Program to agree to use and complete the application and obtain your account number and password for the Program and these Terms are binding on us and you.</span></p><p><span>20.2 The final interpretation right of these Terms belongs to us.</span></p><p><span> </span></p></div></div>
+</body>
+</html>
